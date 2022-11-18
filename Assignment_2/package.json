@@ -1,0 +1,16 @@
+{
+  "name": "assignment_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "employee": "node components/employeeComponent.js",
+    "customer": "node components/customerComponent.js",
+    "user": "node components/userComponent.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
