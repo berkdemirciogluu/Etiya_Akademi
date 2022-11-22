@@ -23,7 +23,7 @@
   <li> Değer tipindeki veri tipleri ile bir değişken tanımlandığında değişkenin değeri Stack adı verilen bellek bölgesinde tutulur.</li>
   <li>Referans tipindeki veri tipinde bir değişken tanımlandığında ise değişkenin değeri Heap bölgesinde ve Heap bölgesindeki değeri gösteren adres değeri ise Stack bölgesinde tutulur. Referans tipindeki bir değişkene bellekte yer ayırırken de “new” anahtar kelimesi kullanılır. </li>
 </ul>
-<table>
+<table align="center">
   <tr>
     <th> Değer Tipi </th>
     <th> Referans Tipi </th>
