@@ -15,3 +15,11 @@
   <li> Kullanıcının girişi (sorgu) "Query params"'da bir değişken olarak geçirilirken, istemci bir API çağrısı yaptığında her "route param"'ın gerçek bir değerle değiştirilmesi gerekir. "route params" süslü parantezleri içinde bulunur.</li>
   <li> "Query params" nasıl bakılacağını açıklarken, "Route params" programınıza nereye bakacağınızı gösterir. "Route params", bitiş noktası URI'nın bir parçasıdır ve bir değere sahip olması gerekir. "Route params", bitiş noktası URL'deki dosya sistemi olarak düşünün ve isteği aradığı cevaba yönlendirin.</li>
 </ul>
+
+<h2> JS'de "Arrow Function'lar nelerdir, özellikleri nelerdir" araştırınız. </h2>
+<ul>
+  <li>Bir "arrow function" ifadesi, geleneksel bir fonksiyon ifadesine kompakt bir alternatiftir, bazı anlamsal farklılıklar ve kullanımda kasıtlı sınırlamalar vardır:</li>
+  <li> "Arrow function"'ların this , arguments veya super ile kendi bağları yoktur ve "method" olarak kullanılmamalıdır.</li>
+  <li> Kullanıcının girişi (sorgu) "Query params"'da bir değişken olarak geçirilirken, istemci bir API çağrısı yaptığında her "route param"'ın gerçek bir değerle değiştirilmesi gerekir. "route params" süslü parantezleri içinde bulunur.</li>
+  <li> "Arrow function" constructor olarak kullanılamaz. New ile çağrılırsa bir TypeError atar. </li>
+</ul>
