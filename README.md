@@ -1,27 +1,78 @@
-# Northwind
+<h2> "TS'de undefined ve null nedir, aralarındaki fark nedir ?" araştırınız. </h2>
+<ul>
+  <li>TypeScript , Null ve Undefined gibi iki özel değere sahiptir. Her ikisi de herhangi bir değerin yokluğunu temsil eder. Null ve Undefined arasındaki fark ince ve kafa karıştırıcıdır.</li>
+  <li>Undefined, değerin atanmadığı ve değerini bilmediğiniz anlamına gelir. Bu, kasıtsız bir değer eksikliğidir. Bir değişkenin bildirildiği ancak henüz bir değer atanmadığı anlamına gelir.</li>
+  <li>Null, değişkenin bir değeri olmadığını bildiğinizi gösterir. Bu kasıtlı bir değer eksikliğidir. </li>
+</ul>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+<h2>  "HTTP request nedir, yapısı nedir, türleri nelerdir niçin kullanılır, http status kodları nelerdir, en sık kullanılan http status kodları hangileridir ?" araştırınız. </h2>
+<ul>
+  <li>HTTP, " hypertext transfer protocol" 'in kısaltmasıdır. Bu protokolü kullanarak istemci sunucuya bir istek gönderir ve isteğe bağlı olarak sunucu ve web tarayıcısı istemciye yanıt verir.</li>
+  <h3> HTTP Request Yapısı </h3>
+  <ul>
+      <li> Her HTTP isteği üç öğe içerir : Request Line, Request Header, Request Body (isteğe bağlı).</li>
+      <h4> Request Line </h4>
+      <ul> 
+        <li> Sunucuya bilgi veya kaynakla ne yapılacağını söyleyen yöntemi belirtir. </li>
+        <li> Sunucudaki kaynağı bulmak için kullanılan isteğin URL'sini içerir. </li>
+        <li> Ayrıca kullanılan HTTP protokolü sürümünü de belirtir (Ör. HTTP / 1.0 veya HTTP/1.1) </li>
+      </ul>
+      <h4> Request Header </h4>
+      <ul> 
+        <li> 0 veya daha fazla başlıktan oluşur. </li>
+        <li> Sunucunun istemcinin isteğini kullanarak talep ettiği bilgilerle nasıl başa çıkacağını bilmesi için istek hakkında daha fazla bilgi iletmek için kullanılır. </li>
+      </ul>
+      <h4> Request Body </h4>
+      <ul> 
+        <li> Bu, sunucuya ek veri göndermek için kullanılan HTTP isteğinin isteğe bağlı bir parçasıdır. </li>
+      </ul>
+  </ul>
+  <h3> HTTP Status Kodları </h3>
+  <ul>
+    <li> HTTP status kodu, bir web sitesinin sunucusunun bu isteğin yerine getirilip getirilemeyeceğini belirtmek için tarayıcıya gönderdiği bir mesajdır.</li>
+  <table align="center">
+  <tr>
+    <th> Status Code </th>
+    <th>  </th>
+  </tr>
+  <tr>
+    <td> 200 </td>
+    <td> OK </td>
+  </tr>
+  <tr>
+    <td> 201 </td>
+    <td> Created </td>
+  </tr>
+  <tr>
+    <td> 400 </td>
+    <td> Bad Request </td>
+  </tr>
+  <tr>
+    <td> 401 </td>
+    <td> Unauthorized </td>
+  </tr>
+  <tr>
+    <td> 403 </td>
+    <td> Forbidden </td>
+  </tr>
+  <tr>
+    <td> 404 </td>
+    <td> Not Found </td>
+  </tr>
+  <tr>
+    <td> 500 </td>
+    <td> Internal Server Error </td>
+  </tr>
+  <tr>
+    <td> 502 </td>
+    <td> Bad Gateway </td>
+  </tr>
+  <tr>
+    <td> 503 </td>
+    <td> Service Unavailable </td>
+  </tr>
+</table>
+  </ul>
+  
+</ul>
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
