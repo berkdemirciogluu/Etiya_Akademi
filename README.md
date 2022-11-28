@@ -85,9 +85,19 @@
   <li> Bazen, fazla özelliklere sahip bir "interface" bildirebiliriz, ancak tüm nesnelerin verilen tüm "interface" özelliklerini tanımlamasını beklemeyebiliriz. </li>
 </ul>
 
-<h2>  "TS'de class (sınıf) ile object (nesne) arasındaki fark nedir ?" araştırınız </h2>
+<h2>  "TS'de class (sınıf) ile object (nesne) arasındaki fark nedir ?" araştırınız. </h2>
 <ul>
   <li> Bir sınıf, benzer nesnelerin veya varlıkların özelliklerini ve davranışlarını tanımlayan bir plandır. Her nesne, kendileriyle ilişkili özelliklere ve davranışlara sahip bir sınıfın bir örneğidir. </li>
   <li> Sınıflar tanımlandığında, bu sınıflar yalnızca bir kavram veya kullanıcı tanımlı veri türü olduğundan, bunlara bellek tahsis edilmez. Ancak, bu sınıfların nesnelerini oluşturduğumuzda, yığına bellek ayrılır. </li>
+</ul>
+
+<h2>  "IoC nedir, Dependency Injection nedir ?" araştırınız. </h2>
+<ul>
+  <li> Inversion of control (IOC), bir uygulamadaki kontrol akışını tersine çeviren bir programlama ilkesidir. </li>
+  <li> Geleneksel prosedürel programlamada, programın yürütülmesini kontrol eden kod — main function — nesneleri başlatır, yöntemleri çağırır ve hatta yürütmenin devam edebilmesi ve programın görevini yerine getirebilmesi için kullanıcıdan girdi ister. </li>
+  <li> IoC ile kullanıcı eylemlerini başlatan, yöntem çağıran ve tetikleyen, akış üzerinde tam kontrole sahip olan ve bu sorumluluğu ana işlevden ve sonuç olarak uygulamadan kaldıran bir çerçevedir. </li>
+  <li> Dependency Injection, bağımlılıkların oluşturulmasının ve bağlanmasının bağımlı sınıfın dışında yapıldığı bir yazılım tasarım tekniğidir. </li>
+  <li> temel olarak oluşturacağınız bir sınıf içerisinde başka bir sınıfın nesnesini kullanacaksanız new anahtar sözcüğüyle oluşturmamanız gerektiğini söyleyen bir yaklaşımdır. </li>
+  <li> Bu sayede Loosely Coupled bir ilişki kurulmuş olur. </li>
 </ul>
 
