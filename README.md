@@ -73,6 +73,15 @@
   </tr>
 </table>
   </ul>
-  
+</ul>
+
+<h2>  "TS'de interface nedir ?" araştırınız </h2>
+<ul>
+  <li> Typescript'te "interface" , derleyiciye belirli bir nesnenin hangi özellik adlarına sahip olabileceğini söyleyen soyut bir türdür. </li>
+  <li> "Class"'ların izleyeceği "syntax" tanımlar. Bir "interface"'den türetilen "class"'lar, o "interface" tarafından sağlanan yapıyı izlemelidir. </li>
+  <li> Typescript'teki "interface", bir "type" tanımlamak ve bunu "class" içerisinde uygulamak için kullanılabilir. </li>
+  <li> TypeScript "interface", bir "function" türünü tanımlamak için de kullanılır. Bu, "function" imzasını sağlar.</li>
+  <li> Bir "interface", dizin türünü ve değerleri tanımlayabileceğiniz bir dizinin türünü de tanımlayabilir. </li>
+  <li> Bazen, fazla özelliklere sahip bir "interface" bildirebiliriz, ancak tüm nesnelerin verilen tüm "interface" özelliklerini tanımlamasını beklemeyebiliriz. </li>
 </ul>
 
