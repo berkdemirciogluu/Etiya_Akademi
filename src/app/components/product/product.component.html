@@ -1,0 +1,52 @@
+<div class="mb-3">
+  <label for="filterProduct" class="form-label">Search Product</label>
+  <input
+    type="text"
+    [(ngModel)]="filterProduct"
+    class="form-control"
+    id="filterProduct"
+    placeholder="Search...."
+  />
+</div>
+<div
+  *ngIf="(products | filterProduct: filterProduct).length == 0"
+  class="alert alert-success"
+>
+  There is no such a product
+</div>
+<div
+  *ngIf="dataLoaded === false"
+  class="spinner-border text-primary"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<table *ngIf="dataLoaded === true" class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Product Name</th>
+      <th>Category</th>
+      <th>Unit Price</th>
+      <th>Price</th>
+      <th>Units In Stock</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products | filterProduct: filterProduct">
+      <td>{{ product.id }}</td>
+      <td>{{ product.name | uppercase }}</td>
+      <td>{{ product.categoryId }}</td>
+      <td>{{ product.unitPrice | currency }}</td>
+      <td>{{ product.unitPrice | vatAdded: 18 | currency }}</td>
+      <td>{{ product.unitsInStock }}</td>
+      <td>
+        <button (click)="addToCart(product)" class="btn btn-success">
+          Add to Cart
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
