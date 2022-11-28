@@ -46,7 +46,7 @@ export class ProductComponent implements OnInit {
     this.productService
       .getProductsByCategory(categoryId)
       .subscribe(async (response) => {
-        await this.delay(1000);
+        await this.delay(1000); // to clearly see the spinner effect
         this.products = response;
         this.dataLoaded = true;
       });
