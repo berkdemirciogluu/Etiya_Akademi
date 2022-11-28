@@ -85,3 +85,9 @@
   <li> Bazen, fazla özelliklere sahip bir "interface" bildirebiliriz, ancak tüm nesnelerin verilen tüm "interface" özelliklerini tanımlamasını beklemeyebiliriz. </li>
 </ul>
 
+<h2>  "TS'de class (sınıf) ile object (nesne) arasındaki fark nedir ?" araştırınız </h2>
+<ul>
+  <li> Bir sınıf, benzer nesnelerin veya varlıkların özelliklerini ve davranışlarını tanımlayan bir plandır. Her nesne, kendileriyle ilişkili özelliklere ve davranışlara sahip bir sınıfın bir örneğidir. </li>
+  <li> Sınıflar tanımlandığında, bu sınıflar yalnızca bir kavram veya kullanıcı tanımlı veri türü olduğundan, bunlara bellek tahsis edilmez. Ancak, bu sınıfların nesnelerini oluşturduğumuzda, yığına bellek ayrılır. </li>
+</ul>
+
