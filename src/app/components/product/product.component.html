@@ -75,7 +75,7 @@
       [routerLink]="['/products']"
       [queryParams]="{ _page: pageNumber, _limit: limit }"
     >
-      <a class="page-link">{{ pageNumber }}</a>
+      <a [class]="setActiveToCurrentPage(pageNumber)">{{ pageNumber }}</a>
     </li>
     <!-- <li class="page-item">
       <a class="page-link" >Next</a>

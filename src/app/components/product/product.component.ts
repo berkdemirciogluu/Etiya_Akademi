@@ -28,15 +28,15 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getPagenationParametersFromRoute();
+    this.getProductsLength();
     this.activatedRoute.params.subscribe((params) => {
       if (params['categoryId']) {
         this.getProductsByCategory(params['categoryId']);
       } else if (this.page && this.limit) {
-        this.getProductsLength();
+        this.getPagenationParametersFromRoute();
         this.getProductsByPagination(this.page, this.limit);
       } else {
-        this.getProductsLength();
+        this.getPagenationParametersFromRoute();
         this.getProductsByPagination(1, 10);
       }
     });
@@ -81,7 +81,6 @@ export class ProductComponent implements OnInit {
   getPagenationParametersFromRoute(): void {
     this.activatedRoute.queryParams.subscribe((queryParams) => {
       if (queryParams['_page']) {
-        debugger;
         this.page = queryParams['_page'];
         this.limit = queryParams['_limit'] || 10;
         this.getProductsByPagination(this.page, this.limit);
@@ -100,15 +99,25 @@ export class ProductComponent implements OnInit {
 
   changePageSize(event: Event) {
     this.limit = Number((event.target as HTMLInputElement).value);
-  }
-  changePage(page: any) {
-    this.page = page;
+    // For example 5 product per page is selected and we are in the last page 16
+    // Then if the product per page is increased such as 10 then current page will be empty
+    // To prevent this behavior below two lines are added
+    const a = this.pageNumbers;
+    if (this.page > a.length) this.page = a.length;
   }
 
   get pageNumbers(): number[] {
     return Array(Math.ceil(this.totalProductNumber / this.limit))
       .fill(0)
       .map((x, i) => i + 1);
+  }
+
+  setActiveToCurrentPage(page: number) {
+    debugger;
+    if (page == this.page) {
+      return 'page-link active';
+    }
+    return 'page-link';
   }
   //*********************************** */
 
