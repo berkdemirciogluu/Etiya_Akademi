@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: ProductComponent },
   { path: 'products', component: ProductComponent },
   { path: 'products/category/:categoryId', component: ProductComponent },
+  { path: 'products?_page=:page&_limit=:limit', component: ProductComponent },
 ];
 
 @NgModule({

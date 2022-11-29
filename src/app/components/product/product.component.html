@@ -50,3 +50,56 @@
     </tr>
   </tbody>
 </table>
+
+<!-- <pagination-controls (pageChange)="page = $event"></pagination-controls> -->
+<!-- <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item active">
+      <select
+        class="form-control"
+        [value]="itemsPerPage"
+        (change)="changePageSize($event)"
+      >
+        <option value="5">5 Product Per Page</option>
+        <option value="10">10 Product Per Page</option>
+        <option value="15">15 Product Per Page</option>
+      </select>
+    </li>
+    <li *ngFor="let page of pageNumbers" (click)="changePage(page)">
+      <a class="page-link">{{ page }}</a>
+    </li>
+  </ul>
+</nav> -->
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-end">
+    <!-- <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li> -->
+    <li
+      *ngFor="let pageNumber of pageNumbers"
+      class="page-item"
+      [routerLink]="['/products']"
+      [queryParams]="{ _page: pageNumber, _limit: limit }"
+    >
+      <a class="page-link">{{ pageNumber }}</a>
+    </li>
+    <!-- <li
+      class="page-item"
+      [routerLink]="['/products']"
+      [queryParams]="{ _page: '2', _limit: limit }"
+    >
+      <a class="page-link">2</a>
+    </li>
+    <li
+      class="page-item"
+      [routerLink]="['/products']"
+      [queryParams]="{ _page: '3', _limit: limit }"
+    >
+      <a class="page-link">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" >Next</a>
+    </li> -->
+  </ul>
+</nav>

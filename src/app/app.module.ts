@@ -13,6 +13,8 @@ import { FilterProductPipe } from './pipes/filter-product.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     VatAddedPipe,
     FilterProductPipe,
     CartSummaryComponent,
+    PaginatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
       positionClass: 'toast-bottom-right',
     }),
     BrowserAnimationsModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

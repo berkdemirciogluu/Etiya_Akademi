@@ -19,4 +19,8 @@ export class ProductService {
     let newPath = this.apiUrl + 'products?categoryId=' + categoryId;
     return this.httpClient.get<Product[]>(newPath);
   }
+  getProductsByPagination(page: number, limit: number): Observable<Product[]> {
+    let newPath = `${this.apiUrl}products?_page=${page}&_limit=${limit}`;
+    return this.httpClient.get<Product[]>(newPath);
+  }
 }
