@@ -1,18 +1,18 @@
-import { Pagination } from './../../models/pagination';
-import { GetListOptions } from './../../models/get-list-options';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { GetListOptions } from 'src/app/models/get-list-options';
+import { Pagination } from 'src/app/models/pagination';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css'],
+  selector: 'app-dashboard-products-list',
+  templateUrl: './dashboard-products-list.component.html',
+  styleUrls: ['./dashboard-products-list.component.css'],
 })
-export class ProductComponent implements OnInit {
+export class DashboardProductsListComponent implements OnInit {
   products: Product[] = [];
   dataLoaded: boolean = false;
   filterProduct: string = '';
@@ -22,34 +22,25 @@ export class ProductComponent implements OnInit {
   };
   filters: any = [];
   totalProductNumber: number;
-  categoryId: number;
 
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private toastrService: ToastrService,
-    private cartService: CartService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getProductsLength();
-    this.activatedRoute.params.subscribe((params) => {
-      this.getCategoryIdFromRoute();
-      this.getProducts({ pagination: this.pagination, filters: this.filters });
-    });
     this.activatedRoute.queryParams.subscribe((queryParams) => {
       this.getPagenationParametersFromRoute();
       this.getProducts({ pagination: this.pagination, filters: this.filters });
     });
   }
-
   getProductsLength() {
     this.productService.getProducts().subscribe(async (response) => {
       this.totalProductNumber = response.length;
     });
   }
-
   getProducts(options?: GetListOptions) {
     this.productService.getProducts(options).subscribe(async (response) => {
       debugger;
@@ -76,24 +67,6 @@ export class ProductComponent implements OnInit {
         this.pagination.limit = queryParams['_limit'] || 10;
       }
     });
-  }
-
-  getCategoryIdFromRoute() {
-    debugger;
-    this.activatedRoute.params.subscribe((params) => {
-      if (params['categoryId']) {
-        this.filters['categoryId'] = parseInt(params['categoryId']);
-      }
-    });
-  }
-
-  addToCart(product: Product) {
-    try {
-      this.cartService.addToCart(product);
-      this.toastrService.success('Added to the cart', product.name);
-    } catch (error) {
-      this.toastrService.error('Could not added to the cart', product.name);
-    }
   }
 
   changePageSize(event: Event) {

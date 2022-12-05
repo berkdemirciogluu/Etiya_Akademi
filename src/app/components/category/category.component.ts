@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/models/category';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -11,7 +12,11 @@ export class CategoryComponent implements OnInit {
   categories: Category[] = [];
   currentCategory: Category | null;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(
+    private categoryService: CategoryService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getCategories();
@@ -25,6 +30,7 @@ export class CategoryComponent implements OnInit {
 
   setCurrentCategory(category: Category) {
     this.currentCategory = category;
+    this.router.navigate(['products', 'category', category.id]);
   }
 
   getCurrentCategoryClass(category: Category) {

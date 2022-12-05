@@ -7,7 +7,6 @@
     All Categories
   </li>
   <li
-    routerLink="/products/category/{{ category.id }}"
     *ngFor="let category of categories"
     (click)="setCurrentCategory(category)"
     [class]="getCurrentCategoryClass(category)"
