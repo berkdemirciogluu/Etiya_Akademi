@@ -34,7 +34,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products | filterProduct : filterProduct">
+    <tr
+      *ngFor="
+        let product of products
+          | filterProduct : filterProduct
+          | filterProductByPrice : 20 : 'asd'
+      "
+    >
       <td>{{ product.id }}</td>
       <td>{{ product.name | uppercase }}</td>
       <td>{{ product.categoryId }}</td>

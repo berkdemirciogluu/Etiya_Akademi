@@ -25,6 +25,7 @@ import { DashboardCategoriesPageComponent } from './pages/dashboard-categories-p
 import { CategoryFormPageComponent } from './pages/category-form-page/category-form-page.component';
 import { DashboardCategoriesListComponent } from './components/dashboard-categories-list/dashboard-categories-list.component';
 import { FilterCategoryPipe } from './pipes/filter-category.pipe';
+import { FilterProductByPricePipe } from './pipes/filter-product-by-price.pipe';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FilterCategoryPipe } from './pipes/filter-category.pipe';
     CategoryFormPageComponent,
     DashboardCategoriesListComponent,
     FilterCategoryPipe,
+    FilterProductByPricePipe,
   ],
   imports: [
     BrowserModule,
