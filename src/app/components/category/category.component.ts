@@ -10,7 +10,7 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategoryComponent implements OnInit {
   categories: Category[] = [];
-  currentCategory: Category | null;
+  currentCategory: Category | null = null;
 
   constructor(
     private categoryService: CategoryService,
@@ -31,22 +31,5 @@ export class CategoryComponent implements OnInit {
   setCurrentCategory(category: Category) {
     this.currentCategory = category;
     this.router.navigate(['products', 'category', category.id]);
-  }
-
-  getCurrentCategoryClass(category: Category) {
-    if (category === this.currentCategory) {
-      return 'list-group-item active';
-    }
-    return 'list-group-item';
-  }
-
-  getAllCategoryClass() {
-    if (!this.currentCategory) {
-      return 'list-group-item active';
-    }
-    return 'list-group-item';
-  }
-  setAllCategory() {
-    return (this.currentCategory = null);
   }
 }

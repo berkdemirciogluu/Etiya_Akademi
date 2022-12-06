@@ -1,3 +1,4 @@
+import { FilterPriceOperator } from './../../pipes/filter-product-by-price.pipe';
 import { Pagination } from './../../models/pagination';
 import { GetListOptions } from './../../models/get-list-options';
 import { Component, OnInit } from '@angular/core';
@@ -16,6 +17,8 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   dataLoaded: boolean = false;
   filterProduct: string = '';
+  filterPrice: number;
+  filterPriceOperator: FilterPriceOperator;
   pagination: Pagination = {
     page: 1,
     limit: 10,
@@ -59,11 +62,14 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  onPagination(pageNumber: number) {
+  onPagination() {
     debugger;
     this.router.navigate([], {
       relativeTo: this.activatedRoute,
-      queryParams: { _page: pageNumber, _limit: this.pagination.limit },
+      queryParams: {
+        _page: this.pagination.page,
+        _limit: this.pagination.limit,
+      },
       queryParamsHandling: 'merge',
     });
   }
@@ -103,6 +109,12 @@ export class ProductComponent implements OnInit {
     // To prevent this behavior below two lines are added
     const a = this.pageNumbers;
     if (this.pagination.page > a.length) this.pagination.page = a.length;
+  }
+
+  onButtonChange(event: Event) {
+    const field = (event.target as HTMLInputElement).value;
+    this.filterPriceOperator =
+      FilterPriceOperator[field as keyof typeof FilterPriceOperator];
   }
 
   get pageNumbers(): number[] {

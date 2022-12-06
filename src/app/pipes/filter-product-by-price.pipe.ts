@@ -5,21 +5,38 @@ import { Product } from '../models/product';
   name: 'filterProductByPrice',
 })
 export class FilterProductByPricePipe implements PipeTransform {
-  transform(products: Product[], price: number, operator?: string): Product[] {
-    if (operator == null) {
-      operator = Operator.eq;
-    }
+  // transform(
+  //   products: Product[],
+  //   price: number,
+  //   operator: 'gt' | 'lt' | 'gte' | 'lte' | 'eq' = 'eq'
+  // ): Product[] {
+  //   switch (operator) {
+  //     case 'eq':
+  //       return products.filter((p) => p.unitPrice === price);
+  //     case 'gt':
+  //       return products.filter((p) => p.unitPrice > price);
+  //     case 'lt':
+  //       return products.filter((p) => p.unitPrice < price);
+  //     case 'gte':
+  //       return products.filter((p) => p.unitPrice >= price);
+  //     case 'lte':
+  //       return products.filter((p) => p.unitPrice <= price);
+  //     default:
+  //       return products;
+  //   }
+  // }
 
+  transform(products: Product[], price: number, operator: any): Product[] {
     switch (operator) {
-      case Operator.eq:
+      case FilterPriceOperator.eq:
         return products.filter((p) => p.unitPrice === price);
-      case Operator.gt:
+      case FilterPriceOperator.gt:
         return products.filter((p) => p.unitPrice > price);
-      case Operator.lt:
+      case FilterPriceOperator.lt:
         return products.filter((p) => p.unitPrice < price);
-      case Operator.gte:
+      case FilterPriceOperator.gte:
         return products.filter((p) => p.unitPrice >= price);
-      case Operator.lte:
+      case FilterPriceOperator.lte:
         return products.filter((p) => p.unitPrice <= price);
       default:
         return products;
@@ -27,7 +44,7 @@ export class FilterProductByPricePipe implements PipeTransform {
   }
 }
 
-export enum Operator {
+export enum FilterPriceOperator {
   gt = 'gt',
   lt = 'lt',
   gte = 'gte',
