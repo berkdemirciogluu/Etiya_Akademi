@@ -10,6 +10,8 @@ export class FilterProductByPricePipe implements PipeTransform {
   //   price: number,
   //   operator: 'gt' | 'lt' | 'gte' | 'lte' | 'eq' = 'eq'
   // ): Product[] {
+  //   if (price <= 0) return products;
+
   //   switch (operator) {
   //     case 'eq':
   //       return products.filter((p) => p.unitPrice === price);

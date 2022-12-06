@@ -19,6 +19,8 @@ export class ProductComponent implements OnInit {
   filterProduct: string = '';
   filterPrice: number;
   filterPriceOperator: FilterPriceOperator;
+  //filterPrice: number = 0;
+  //filterPriceOperator: 'gt' | 'lt' | 'gte' | 'lte' | 'eq';
   pagination: Pagination = {
     page: 1,
     limit: 10,
@@ -116,6 +118,11 @@ export class ProductComponent implements OnInit {
     this.filterPriceOperator =
       FilterPriceOperator[field as keyof typeof FilterPriceOperator];
   }
+
+  // onButtonChange(event: Event) {
+  //   const field = (event.target as HTMLInputElement).value;
+  //   this.filterPriceOperator = field as 'gt' | 'lt' | 'gte' | 'lte' | 'eq';
+  // }
 
   get pageNumbers(): number[] {
     return Array(Math.ceil(this.totalProductNumber / this.pagination.limit))
