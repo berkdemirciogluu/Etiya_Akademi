@@ -5,7 +5,11 @@ import { Product } from '../models/product';
   name: 'filterProductByPrice',
 })
 export class FilterProductByPricePipe implements PipeTransform {
-  transform(products: Product[], price: number, operator: string): Product[] {
+  transform(products: Product[], price: number, operator?: string): Product[] {
+    if (operator == null) {
+      operator = Operator.eq;
+    }
+
     switch (operator) {
       case Operator.eq:
         return products.filter((p) => p.unitPrice === price);
