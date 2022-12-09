@@ -7,10 +7,7 @@
     placeholder="Search...."
   />
 </div>
-<div
-  *ngIf="(products | filterProduct : filterProduct).length == 0"
-  class="alert alert-success"
->
+<div *ngIf="products.length == 0" class="alert alert-success">
   There is no such a product
 </div>
 <div
@@ -34,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products | filterProduct : filterProduct">
+    <tr *ngFor="let product of products">
       <td>{{ product.id }}</td>
       <td>{{ product.name | uppercase }}</td>
       <td>{{ product.categoryId }}</td>

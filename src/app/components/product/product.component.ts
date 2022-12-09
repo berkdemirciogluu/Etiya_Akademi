@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
+import { FilterProduct } from 'src/app/models/filter-products';
 
 @Component({
   selector: 'app-product',
@@ -29,6 +30,22 @@ export class ProductComponent implements OnInit {
   totalProductNumber: number;
   categoryId: number;
 
+  generalFilter: FilterProduct = {
+    name: '',
+    categoryId: undefined,
+    supplierId: undefined,
+    minPrice: 0,
+    maxPrice: 9999999999999,
+  };
+
+  // generalFilter: FilterProduct = {
+  //   name: 'a',
+  //   categoryId: 1,
+  //   supplierId: 1,
+  //   minPrice: 0,
+  //   maxPrice: 9999999999999,
+  // };
+
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
@@ -38,6 +55,7 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    debugger;
     this.getProductsLength();
     this.activatedRoute.params.subscribe((params) => {
       this.getCategoryIdFromRoute();
@@ -57,19 +75,18 @@ export class ProductComponent implements OnInit {
 
   getProducts(options?: GetListOptions) {
     this.productService.getProducts(options).subscribe(async (response) => {
-      debugger;
       //await this.delay(1000); // to clearly see the spinner effect
       this.products = response;
       this.dataLoaded = true;
     });
   }
 
-  onPagination() {
+  onPagination(pageNumber: number) {
     debugger;
     this.router.navigate([], {
       relativeTo: this.activatedRoute,
       queryParams: {
-        _page: this.pagination.page,
+        _page: pageNumber,
         _limit: this.pagination.limit,
       },
       queryParamsHandling: 'merge',
@@ -77,7 +94,6 @@ export class ProductComponent implements OnInit {
   }
 
   getPagenationParametersFromRoute(): void {
-    debugger;
     this.activatedRoute.queryParams.subscribe((queryParams) => {
       if (queryParams['_page']) {
         this.pagination.page = queryParams['_page'];
@@ -87,7 +103,6 @@ export class ProductComponent implements OnInit {
   }
 
   getCategoryIdFromRoute() {
-    debugger;
     this.activatedRoute.params.subscribe((params) => {
       if (params['categoryId']) {
         this.filters['categoryId'] = parseInt(params['categoryId']);
@@ -141,5 +156,16 @@ export class ProductComponent implements OnInit {
   // This function is added to clearly see the spinner effect
   private delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  onFilterApplied(filterData: FilterProduct) {
+    debugger;
+    this.generalFilter.name = filterData.name;
+    this.generalFilter.categoryId = filterData.categoryId;
+    this.generalFilter.supplierId = filterData.supplierId;
+    this.generalFilter.minPrice = filterData.minPrice;
+    this.generalFilter.maxPrice = filterData.maxPrice;
+
+    this.getProducts({ pagination: this.pagination, filters: this.filters });
   }
 }
