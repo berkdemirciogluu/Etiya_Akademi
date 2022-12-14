@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardProductsPageComponent } from './pages/dashboard-products-page/dashboard-products-page.component';
 import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomePageComponent },
@@ -48,6 +49,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: 'cart', component: CartComponent },
 ];
 
 @NgModule({

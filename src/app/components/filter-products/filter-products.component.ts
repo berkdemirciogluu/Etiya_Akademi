@@ -22,8 +22,8 @@ export class FilterProductsComponent implements OnInit {
 
   isInStock: boolean = true;
   currentName: string;
-  currentCategoryId: number;
-  currentSupplierId: number;
+  currentCategoryId: number = 0;
+  currentSupplierId: number = 0;
   minPrice: number;
   maxPrice: number;
 

@@ -27,6 +27,7 @@ import { DashboardCategoriesListComponent } from './components/dashboard-categor
 import { FilterCategoryPipe } from './pipes/filter-category.pipe';
 import { FilterProductByPricePipe } from './pipes/filter-product-by-price.pipe';
 import { FilterProductsComponent } from './components/filter-products/filter-products.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { FilterProductsComponent } from './components/filter-products/filter-pro
     FilterCategoryPipe,
     FilterProductByPricePipe,
     FilterProductsComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,9 @@ export class FilterProductPipe implements PipeTransform {
     filter.categoryId = filter.categoryId ? filter.categoryId : undefined;
     filter.supplierId = filter.supplierId ? filter.supplierId : undefined;
     filter.minPrice = filter.minPrice ? filter.minPrice : 0;
-    filter.maxPrice = filter.maxPrice ? filter.maxPrice : 99999999999999999;
+    filter.maxPrice = filter.maxPrice
+      ? filter.maxPrice
+      : Number.MAX_SAFE_INTEGER;
 
     filteredProducts = filter.name
       ? filteredProducts.filter((p: Product) =>
@@ -36,11 +38,5 @@ export class FilterProductPipe implements PipeTransform {
     );
 
     return filteredProducts;
-
-    // return filterText
-    //   ? value.filter((product: Product) =>
-    //       product.name.toLocaleLowerCase().includes(filterText)
-    //     )
-    //   : value;
   }
 }

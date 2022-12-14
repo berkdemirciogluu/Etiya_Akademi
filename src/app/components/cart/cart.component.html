@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cartItem of cartItems">
+      <td>{{ cartItem.product.name }}</td>
+      <td>{{ cartItem.quantity }}</td>
+      <td>{{ cartItem.product.unitPrice * cartItem.quantity | currency }}</td>
+      <td>
+        <button class="btn btn-success">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -24,4 +24,12 @@ export class CartSummaryComponent implements OnInit {
   removeFromCart(product: Product) {
     this.cartService.removeFromCart(product);
   }
+
+  get totalPrice() {
+    let price = 0;
+    for (let cartItem of this.cartItems) {
+      price += cartItem.product.unitPrice * cartItem.quantity;
+    }
+    return price;
+  }
 }

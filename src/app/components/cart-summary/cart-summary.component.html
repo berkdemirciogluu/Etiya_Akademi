@@ -1,4 +1,4 @@
-<li *ngIf="cartItems.length > 0" class="nav-item dropdown">
+<!-- <li *ngIf="cartItems.length > 0" class="nav-item dropdown">
   <a
     class="nav-link dropdown-toggle"
     id="navbarDropDown"
@@ -23,4 +23,39 @@
     <li><hr class="dropdown-divider" /></li>
     <li><a class="dropdown-item" href="#">Go to Cart</a></li>
   </ul>
-</li>
+</li> -->
+
+<div class="dropdown">
+  <button
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Cart
+  </button>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item text-wrap" *ngFor="let cartItem of cartItems">
+        <span class="badge text-bg-secondary">{{ cartItem.quantity }}</span>
+        <span class="px-2">{{ cartItem.product.name }} </span>
+        <span class="badge text-bg-secondary">{{
+          cartItem.product.unitPrice * cartItem.quantity | currency
+        }}</span>
+        <span
+          class="badge text-bg-secondary bg-danger"
+          (click)="removeFromCart(cartItem.product)"
+          >X</span
+        >
+      </a>
+    </li>
+    <li><hr class="dropdown-divider" /></li>
+    <li>
+      <a class="dropdown-item" href="#"
+        >Total Price : {{ totalPrice | currency }}</a
+      >
+    </li>
+    <li><hr class="dropdown-divider" /></li>
+    <li><a class="dropdown-item" [routerLink]="'/cart'">Go to Cart</a></li>
+  </ul>
+</div>

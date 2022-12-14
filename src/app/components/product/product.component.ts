@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
   //filterPriceOperator: 'gt' | 'lt' | 'gte' | 'lte' | 'eq';
   pagination: Pagination = {
     page: 1,
-    limit: 10,
+    limit: 9999,
   };
   filters: any = [];
   totalProductNumber: number;

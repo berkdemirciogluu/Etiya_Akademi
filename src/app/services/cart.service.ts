@@ -1,6 +1,6 @@
+import { CartItems } from './../models/cartItems';
 import { CartItem } from './../models/cartItem';
 import { Injectable } from '@angular/core';
-import { CartItems } from '../models/cartItems';
 import { Product } from '../models/product';
 
 @Injectable({
