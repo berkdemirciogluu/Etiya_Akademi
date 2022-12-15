@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CartItem } from 'src/app/models/cartItem';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
@@ -8,8 +9,9 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   cartItems: CartItem[] = [];
+  cartItemSubs: Subscription;
 
   constructor(private cartService: CartService) {}
 
@@ -18,16 +20,20 @@ export class CartComponent implements OnInit {
   }
 
   getCart() {
-    this.cartService._cartItems.subscribe(
+    this.cartItemSubs = this.cartService._cartItems.subscribe(
       (response) => (this.cartItems = response)
     );
   }
 
   removeFromCart(product: Product) {
-    this.cartService.removeFromCart(product);
+    this.cartService.removeFromCart(product).subscribe();
   }
 
   completeOrder() {
-    this.cartService.removeFromBackend();
+    this.cartService.removeCartProductsFromBackend();
+  }
+
+  ngOnDestroy(): void {
+    this.cartItemSubs.unsubscribe();
   }
 }
