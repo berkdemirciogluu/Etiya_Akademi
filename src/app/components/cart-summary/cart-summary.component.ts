@@ -18,7 +18,9 @@ export class CartSummaryComponent implements OnInit {
   }
 
   getCart() {
-    this.cartItems = this.cartService.list();
+    this.cartService._cartItems.subscribe(
+      (response) => (this.cartItems = response)
+    );
   }
 
   removeFromCart(product: Product) {

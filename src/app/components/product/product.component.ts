@@ -111,6 +111,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product: Product) {
+    debugger;
     try {
       this.cartService.addToCart(product);
       this.toastrService.success('Added to the cart', product.name);

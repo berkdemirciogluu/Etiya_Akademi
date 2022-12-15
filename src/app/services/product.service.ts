@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { GetListOptions } from '../models/get-list-options';
 import { Product } from '../models/product';
 
@@ -37,8 +37,9 @@ export class ProductService {
   }
 
   update(request: Product): Observable<Product> {
-    let newPath = this.apiUrl + 'products';
-    return this.httpClient.put<Product>(`${newPath}/${request.id}`, request);
+    debugger;
+    let newPath = `${this.apiUrl}products/${request.id}`;
+    return this.httpClient.put<Product>(newPath, request);
   }
 
   delete(productId: number): Observable<Product> {
