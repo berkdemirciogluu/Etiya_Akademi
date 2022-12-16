@@ -1,4 +1,4 @@
-import { Pagination } from '../../../shared/models/pagination';
+import { Pagination } from './pagination';
 
 export interface GetListOptions {
   pagination?: Pagination;

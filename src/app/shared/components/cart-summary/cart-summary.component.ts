@@ -20,9 +20,10 @@ export class CartSummaryComponent implements OnInit, OnDestroy {
   }
 
   getCart() {
-    this.cartService._cartItems.subscribe(
-      (response) => (this.cartItems = response)
-    );
+    this.cartService._cartItems.subscribe((response) => {
+      debugger;
+      this.cartItems = response;
+    });
   }
 
   removeFromCart(product: Product) {

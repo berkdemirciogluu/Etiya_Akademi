@@ -1,6 +1,5 @@
 import { FilterPriceOperator } from '../../pipes/filter-product-by-price.pipe';
-import { Pagination } from '../../../../shared/models/pagination';
-import { GetListOptions } from '../../models/get-list-options';
+import { Pagination } from '../../../../core/models/pagination';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -8,6 +7,7 @@ import { Product } from 'src/app/features/product/models/product';
 import { CartService } from 'src/app/features/cart/services/cart.service';
 import { ProductService } from 'src/app/features/product/services/product.service';
 import { FilterProduct } from 'src/app/features/product/models/filter-products';
+import { GetListOptions } from 'src/app/core/models/get-list-options';
 
 @Component({
   selector: 'app-product',

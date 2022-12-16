@@ -35,6 +35,11 @@ export class CartService {
         })
       )
       .subscribe();
+
+    // let cartItem = new CartItem();
+    // cartItem.product = product;
+    // cartItem.quantity = 1;
+    // this._cartItems.next([...this._cartItems.value, cartItem]);
   }
 
   removeFromCart(product: Product) {
@@ -58,9 +63,7 @@ export class CartService {
         debugger;
         this.productService
           .update(product)
-          .subscribe((result) =>
-            this.toasterService.success('Order Completed')
-          );
+          .subscribe(() => this.toasterService.success('Order Completed'));
       });
     }
     this._cartItems
@@ -70,5 +73,6 @@ export class CartService {
         })
       )
       .subscribe();
+    // this._cartItems.next([]);
   }
 }

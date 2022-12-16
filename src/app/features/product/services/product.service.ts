@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { GetListOptions } from '../models/get-list-options';
+import { GetListOptions } from 'src/app/core/models/get-list-options';
 import { Product } from '../models/product';
 
 @Injectable({

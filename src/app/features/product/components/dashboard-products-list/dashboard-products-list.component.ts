@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { GetListOptions } from 'src/app/features/product/models/get-list-options';
-import { Pagination } from 'src/app/shared/models/pagination';
+import { Pagination } from 'src/app/core/models/pagination';
 import { Product } from 'src/app/features/product/models/product';
-import { CartService } from 'src/app/features/cart/services/cart.service';
 import { ProductService } from 'src/app/features/product/services/product.service';
+import { GetListOptions } from 'src/app/core/models/get-list-options';
 
 @Component({
   selector: 'app-dashboard-products-list',
